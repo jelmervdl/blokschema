@@ -1,0 +1,62 @@
+body {
+	font-family: Helvetica;
+	font-size: 12px;
+	margin-top: 40px;
+	height: 100%;
+}
+h2 {
+	float: left;
+	clear: left;
+	overflow: hidden;
+	font-size: 1em;
+	width: 100px;
+}
+
+.timeline, .show-track {
+	margin-left: 100px;
+}
+
+.timeline {
+	display: block;
+	position: absolute;
+	top: 0;
+	height: 1300px;
+}
+
+.timeline li {
+	list-style: none;
+	position: absolute;
+	top: 0;
+	height: 100%;
+	border-left: 1px solid gray;
+	color: gray;
+	width: 60px;
+	overflow: hidden;
+}
+
+.show-track {
+	display: block;
+	height: 40px;
+	background: silver;
+	position: relative;
+}
+
+.show-track li {
+	list-style: none;
+	position: absolute;
+	top: 0;
+	height: 32px;
+	display: block;
+	background: red;
+	overflow: hidden;
+	opacity: 0.25;
+}
+
+.show-track li a {
+	margin: 4px;
+	color: white;
+}
+
+.show-track li a:visited {
+	color: silver;
+}
