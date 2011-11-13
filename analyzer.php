@@ -21,13 +21,13 @@ $location_translation = array(
 	'Friesland bankzaal' => 'Friesland Bank Zaal',
 	'Grote Zaal FIlmhuis' => 'Grote Zaal Filmhuis',
 	'De Friesland Zorgverzekeraarzaal' => 'De Friesland Zorgverzekeraar Zaal',
-	'Friesland Zorgverzekeraarzaal' => 'De Friesland Zorgverzekeraar Zaal'
+	'Friesland Zorgverzekeraarzaal'    => 'De Friesland Zorgverzekeraar Zaal'
 );
 
 foreach ($movies as $movie)
 	foreach ($movie->shows as $show)
-		if (isset($location_translation[$show->location]))
-			$show->location = $location_translation[$show->location];
+		if (isset($location_translation[trim($show->location)]))
+			$show->location = $location_translation[trim($show->location)];
 
 foreach ($movies as $movie)
 {
@@ -50,5 +50,7 @@ function array_unique_($input)
 
 	return $output;
 }
+
+echo implode(array_keys($locations), "\n");
 
 file_put_contents('movies-filtered.txt', serialize($movies));

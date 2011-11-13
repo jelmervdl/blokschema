@@ -10,10 +10,15 @@ function Ruler(timeline)
 Ruler.prototype.update = function()
 {
 	var start = new Date(),
+		end = new Date();
 		now = new Date();
 
 	start.setTime(this.timeline.getAttribute('data-from') * 1000);
-	var offset = now.getTime() - start.getTime();
+	end.setTime(this.timeline.getAttribute('data-till') * 1000);
+	var offset = Math.min(
+		now.getTime() - start.getTime(), // einde van vandaag
+		end.getTime() - start.getTime() // einde van festival
+	);
 
 	this.ruler.style.left = offset / (60 * 1000) + 'px';
 }
