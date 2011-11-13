@@ -1,0 +1,12 @@
+# all generated files
+cache/*
+!cache/.directory
+
+articles/*
+!articles/.directory
+
+details-lines.txt
+timetable.html
+movies.txt
+movies-filtered.txt
+movies-augmented.txt

@@ -34,6 +34,13 @@ h2 {
 	overflow: hidden;
 }
 
+.timeline .current-time {
+	border-left: 2px solid black;
+	width: 2px;
+	z-index: 1;
+	opacity: 0.5;
+}
+
 .show-track {
 	display: block;
 	height: 40px;
@@ -49,14 +56,111 @@ h2 {
 	display: block;
 	background: red;
 	overflow: hidden;
-	opacity: 0.25;
+	opacity: 1;
+	-webkit-user-select: none;
+	border-bottom: 0.5px solid #fff;
+}
+
+.show-track li.favorite {
+	background: orange;
 }
 
 .show-track li a {
 	margin: 4px;
 	color: white;
+	text-decoration: none;
 }
 
 .show-track li a:visited {
 	color: silver;
+}
+
+#details-pull-over {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 724px;
+	height: 100%;
+	background: white;
+	z-index: 2;
+	overflow: scroll;
+	-webkit-box-shadow: 0 0 40px black;
+	-webkit-overflow-scrolling: touch;
+	-webkit-transition: right ease-in-out 300ms;
+
+	font-size: 1.2em;
+	line-height: 1.3em;
+}
+
+#details-pull-over.visible {
+	right: 0;
+}
+
+#details-pull-over.hidden {
+	right: -800px; /* iets meer vanwege de box-shadow */
+}
+
+#details-pull-over article {
+	margin: 16px 32px;
+}
+
+#details-pull-over .close-button {
+	position: absolute;
+	display: block;
+	width: 32px;
+	height: 32px;
+	top: 8px;
+	right: 16px;
+	
+	text-align: center;
+	line-height: 32px;
+	font-size: 20px;
+	color: #333;
+	text-decoration: none;
+}
+
+#movie-trailer {
+	position: relative;
+}
+
+#movie-trailer a {
+	position: absolute;
+	top: 50%;
+	margin-top: -20px;
+	left: 50%;
+	margin-left: -35px;
+}
+
+@media screen and (max-width: 480px) {
+	#details-pull-over {
+		width: 100%;
+		height: 100%;
+		font-size: 11px;
+		top: 0;
+		right: 0;
+		-webkit-transition: top ease-in-out 300ms;
+	}
+
+	#details-pull-over img,
+	#details-pull-over iframe {
+		max-width: 100%;
+		height: auto !important;
+	}
+
+	#details-pull-over.hidden {
+		right: 0;
+		top: 120%;
+	}
+
+	#details-pull-over.visible {
+		right: 0;
+		top: 0;
+	}
+
+	#movie-trailer a {
+		width: 35px;
+		height: 20px;
+		margin-left: -17.5px;
+		margin-top: -10px;
+	}
 }

@@ -56,6 +56,9 @@ function fetch_movie(Movie $movie)
 
 	$movie_node = $xpath->query('//article[contains(@class, "cff_movie")]')->item(0);
 
+	file_put_contents('articles/' . md5($movie->url),
+		utf8_decode($dom->saveHTML($movie_node)));
+
 	$details_node = $xpath->query('//div[contains(@class, "movie-details")]', $movie_node)->item(0);
 
 	parse_movie_details($movie, $details_node);
@@ -106,10 +109,14 @@ function download_page($url)
 	$cache_name = md5($url);
 
 	if (file_exists("cache/$cache_name"))
-		return file_get_contents("cache/$cache_name");
-	
-	$data = file_get_contents($url);
-	file_put_contents("cache/$cache_name", $data);
+	{
+		$data = file_get_contents("cache/$cache_name");
+	}
+	else
+	{
+		$data = file_get_contents($url);
+		file_put_contents("cache/$cache_name", $data);
+	}
 
 	return $data;
 }
