@@ -109,8 +109,8 @@ h2 {
 	display: block;
 	width: 32px;
 	height: 32px;
-	top: 8px;
-	right: 16px;
+	top: 12px;
+	right: 22px;
 	
 	text-align: center;
 	line-height: 32px;
@@ -135,7 +135,7 @@ h2 {
 	#details-pull-over {
 		width: 100%;
 		height: 100%;
-		font-size: 11px;
+		font-size: 12px;
 		top: 0;
 		right: 0;
 		-webkit-transition: top ease-in-out 300ms;
@@ -155,6 +155,10 @@ h2 {
 	#details-pull-over.visible {
 		right: 0;
 		top: 0;
+	}
+
+	#details-pull-over .close-button {
+		top: 6px;
 	}
 
 	#movie-trailer a {
