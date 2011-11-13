@@ -187,6 +187,7 @@ $time_range = (object) array(
 	<head>
 		<title>NFF 2011</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link rel="stylesheet" href="timetable.css">
 		<script src="timetable.js"></script>
